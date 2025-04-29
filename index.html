@@ -66,6 +66,17 @@
         border-color: yellow;
         outline-color: yellow;
       }
+
+      .btn-padrao{
+        background-color: rgb(162, 194, 162);
+        border: none;
+      }
+
+      .btn{
+        color: white;
+        background-color: rgb(6, 165, 6);
+        border: none;
+      }
     </style>
   </head>
   <body>
@@ -99,8 +110,8 @@
         <p class="error-message">
           O tutor precisa ter mais idade que a criança
         </p>
-        <button type="submit">Enviar</button>
-      </form>
+        <button type="submit" id="submit-btn" class="btn-padrao">Enviar</button>
+
     </div>
     <script>
       const form = document.getElementById("form-creche");
@@ -108,6 +119,7 @@
       const ageTutor = document.getElementById("age-tutor");
       const nameBaby = document.getElementById("name-baby");
       const nameTutor = document.getElementById("name-tutor");
+      const button = document.getElementById("submit-btn");
       const errorMessage = document.querySelector('.error-message');
 
       function validaAge(ageOne, ageTwo) {
@@ -145,9 +157,11 @@
 
           if (!tutorMaior) {
             ageTutor.classList.add("error");
+            button.classList.remove("btn");
             errorMessage.style.display = "block";
           } else {
             ageTutor.classList.remove("error");
+            button.classList.add("btn");
             errorMessage.style.display = "none";
           }
         });
